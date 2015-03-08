@@ -46,9 +46,8 @@ function main() {
                console.log("found .wmd-button-row");
                $(".wmd-button-row").each(function() {console.log("does it have a blend button? ", $(this).has(".wmd-blend-button").length);console.log("id", $(this).attr("id"))});
                $(".wmd-button-row").each(function() {
-                  if ($(this).has(".wmd-blend-button").length == 0) { //if no blend button exists, inject one
-                     
-                     if (document.URL.indexOf("blender.stackexchange.com/questions/ask") < 1) { //but only add button if we are not asking a question
+                   if ($(this).has(".wmd-blend-button").length == 0) { //if no blend button exists, inject one
+                      if ((document.URL.indexOf("blender.stackexchange.com/questions/ask") < 1) && (document.URL.indexOf("blender.stackexchange.com/users/edit") < 1)) { //but only add button if we are not asking a question
                         console.log("does not contain blend button, inserting one");
                         injectButton($(this));
                      }
